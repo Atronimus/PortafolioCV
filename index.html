@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>André Fonseca Aguilera — Curriculum / Portafolio</title>
+  <meta name="description" content="Currículum web simple, elegante y responsivo. Hecho con HTML, CSS y JavaScript." />
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#94a3b8;
+      --accent-1:#7c3aed;
+      --accent-2:#06b6d4;
+      --glass: rgba(255,255,255,0.04);
+      --radius:16px;
+      --maxw:1100px;
+      font-family: Inter, ui-sans-serif, system-ui;
+    }
+    *{
+      box-sizing:border-box
+    }
+    html,body{
+      height:100%;
+      margin:0;
+      background:linear-gradient(180deg,var(--bg) 0%, #071028 100%);
+      color:#e6eef8
+    }
+    a{
+      color:inherit
+    }
+    .container{
+      max-width:var(--maxw);
+      margin:40px auto;
+      padding:28px
+    }
+    header{
+      display:flex;
+      gap:18px;
+      align-items:center
+    }
+    .avatar{
+      width:110px;
+      height:110px;
+      border-radius:18px;
+      flex:0 0 110px;
+      background:linear-gradient(135deg,var(--accent-1),var(--accent-2));
+      display:grid;
+      place-items:center;
+      font-weight:700;
+      color:#021124;
+      font-size:28px;
+      box-shadow:0 10px 30px rgba(2,6,23,0.6)
+    }
+    .hero{
+      flex:1
+    }
+    h1{
+      margin:0;
+      font-size:28px;
+      letter-spacing:-0.4px
+    }
+    p.lead{
+      margin:6px 0 0;
+      color:var(--muted)
+    }
+    .actions{
+      margin-top:14px;
+      display:flex;
+      gap:12px
+    }
+    .btn{
+      background:var(--glass);
+      border:1px solid rgba(255,255,255,0.06);
+      padding:10px 14px;
+      border-radius:12px;
+      color:inherit;
+      text-decoration:none;
+      backdrop-filter: blur(6px);
+      cursor:pointer;
+      display:inline-flex;
+      gap:8px;
+      align-items:center
+    }
+    .btn-primary{
+      background:linear-gradient(90deg,var(--accent-1),var(--accent-2));
+      color:#021124;
+      border:none;
+      box-shadow:0 8px 30px rgba(124,58,237,0.18)
+    }
+    main{
+      display:grid;
+      grid-template-columns:1fr 360px;
+      gap:28px;
+      margin-top:26px
+    }
+    .card{
+      background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));
+      border-radius:var(--radius);
+      padding:18px;
+      border:1px solid rgba(255,255,255,0.03)
+    }
+    .section + .section{
+      margin-top:18px
+    }
+    .tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px
+    }
+    .tag{
+      background:rgba(255,255,255,0.03);
+      padding:8px 10px;
+      border-radius:999px;
+      font-size:13px;
+      color:var(--muted);
+      border:1px solid rgba(255,255,255,0.02)
+    }
+    .timeline{
+      display:flex;
+      flex-direction:column;
+      gap:12px
+    }
+    .timeline-item{
+      display:flex;
+      gap:12px
+    }
+    .timeline-item .dot{
+      width:12px;
+      height:12px;
+      background:linear-gradient(90deg,var(--accent-1),var(--accent-2));
+      border-radius:50%
+    }
+    .projects{
+      display:grid;
+      gap:12px
+    }
+    .proj{
+      display:block;
+      padding:12px;
+      border-radius:12px;
+      background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);
+      text-decoration:none;
+      color:inherit;
+      border:1px solid rgba(255,255,255,0.02)
+    }
+    .proj small{
+      color:var(--muted)
+    }
+    form{
+      display:flex;
+      flex-direction:column;
+      gap:8px
+    }
+    input, textarea{
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.06);
+      padding:10px;
+      border-radius:10px;
+      color:inherit;
+      resize:none
+    }
+    input::placeholder, textarea::placeholder{
+      color:rgba(230,238,248,0.45)
+    }
+    footer{
+      margin-top:28px;
+      color:var(--muted);
+      font-size:13px;
+      text-align:center
+    }
+    @media (max-width:900px){
+      main{
+        grid-template-columns:1fr
+      }
+      .avatar{
+        width:88px;
+        height:88px;
+        font-size:22px
+      }
+    }
+    .reveal{
+      opacity:0;
+      transform:translateY(14px) scale(0.997);
+      transition:all 550ms cubic-bezier(.2,.9,.3,1)
+    }
+    .reveal.visible{
+      opacity:1;
+      transform:none
+    }
+    .fancy-border{
+      position:relative;
+      padding:1px;
+      border-radius:18px
+    }
+    .fancy-border::before{
+      content:"";
+      position:absolute;
+      inset:-1px;
+      background:linear-gradient(90deg,var(--accent-1),var(--accent-2));
+      filter:blur(24px);
+      z-index:-1;
+      border-radius:inherit;
+      opacity:0.65
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="reveal">
+      <div class="avatar">
+        <img src="Foto.jpg" alt="Foto de André Fonseca Aguilera" style="width:100%; height:100%; object-fit:cover; border-radius:inherit;">
+      </div>
+
+      <div class="hero">
+        <h1 id="name">André Fonseca Aguilera</h1>
+        <p class="lead" id="title">Full Stack Developer • Laravel / Angular / PHP </p>
+        <div class="actions">
+          <a class="btn btn-primary" id="cvBtn" href="André Fonseca CV(Complete Edition).pdf" download>Descargar CV</a>
+          <a class="btn" id="emailBtn" href="mailto:andrefonsecaaguilera@gmail.com">✉ Contacto</a>
+          <a class="btn" id="githubBtn" href="https://github.com/Atronimus" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section>
+        <div class="card section reveal">
+          <h3>DESCRIPCIÓN</h3>
+          <p id="about">Ingeniero en Sistemas Computacionales con 1 año y medio de experiencia profesional en desarrollo de software, 
+            especializado en Laravel y Angular. Domino el desarrollo backend con PHP y Laravel, así como el frontend con Angular, 
+            integrando pruebas unitarias robustas mediante PHPUnit y Karma para asegurar la calidad del código.
+            Tengo amplia experiencia en el uso de Git y GitHub, con manejo avanzado de ramas, pull requests y flujos de trabajo 
+            colaborativos. He trabajado con APIs externas como la de DipoMex, integrando soluciones que garantizan la disponibilidad de 
+            datos mediante respaldos locales en caso de fallos del servicio externo.
+            Mis proyectos se han enfocado principalmente en sistemas administrativos, incluyendo el control de inventarios, gestión de 
+            entradas y salidas de artículos, generación de licencias y sistemas de solicitudes de usuarios. He trabajado con bases de datos 
+            MySQL y, en menor medida, Oracle. Además, tengo experiencia con metodologías ágiles y herramientas como Jira para el seguimiento 
+            y control de tareas.
+            Soy una persona autodidacta, adaptable y comprometida con la mejora continua. Me entusiasma asumir nuevos retos dentro del 
+            área de programación, y aportar soluciones eficientes y bien estructuradas, ya sea en entornos presenciales o remotos.
+          </p>
+          <div class="section">
+            <h4>Lenguajes y Tecnologías</h4>
+            <div class="tags" id="skills">
+              <span class="tag">C++</span>
+              <span class="tag">Java</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">PHP</span>
+              <span class="tag">Python</span>
+              <span class="tag">Laravel</span>
+              <span class="tag">VueJs</span>
+              <span class="tag">PHPUnit</span>
+              <span class="tag">Flask</span>
+              <span class="tag">Django</span>
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">Bootstrap</span>
+              <span class="tag">Angular</span>
+              <span class="tag">Unit Test (Angular)</span>
+            </div>
+          </div>
+          <div class="section">
+            <h4>Bases de Datos</h4>
+            <div class="tags" id="databases">
+              <span class="tag">MySQL</span>
+              <span class="tag">SQL Server</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">Oracle</span>
+              <span class="tag">phpMyAdmin</span>
+              <span class="tag">Workbench</span>
+              <span class="tag">HeidiSQL</span>
+            </div>
+          </div>
+          <div class="section">
+            <h4>Experiencia Laboral</h4>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="dot"></div>
+                <div>
+                  <strong>Desarrollador Full Stack — Empresa DexterNetQro</strong>
+                  <div><small class="muted">Ago 2021 — Dic 2022</small></div>
+                  <p class="muted">Desarrollo de sitios web en WordPress para distintos clientes. Participé en varios proyectos, 
+                    fortaleciendo mis habilidades de diseño, personalización de temas, maquetación web y optimización de rendimiento.
+                  </p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="dot"></div>
+                <div>
+                  <strong>Sublíder y Líder de Proyecto — Universidad Politécnica de Querétaro</strong>
+                  <div><small class="muted">Ene 2023 — Jul 2023</small></div>
+                  <p class="muted">Sublíder y luego Líder del equipo de desarrollo para una aplicación web SPA construida con Laravel 
+                    y Vue.js, dirigida al área de servicios estudiantiles. Coordiné mesas de retroalimentación, lideré entregas de 
+                    funcionalidades clave y colaboré en todo el ciclo de desarrollo del sistema.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card section reveal fancy-border" style="margin-top:18px">
+          <h4 style="font-weight: 600; text-align: center;">Proyectos destacados</h4>
+          <div class="projects">
+            <a class="proj" href="#" target="_blank">
+              <strong>Proyecto A</strong>
+              <div><small>Repositorio • Single Page App</small></div>
+            </a>
+            <a class="proj" href="#" target="_blank">
+              <strong>Proyecto B</strong>
+              <div><small>API • Laravel</small></div>
+            </a>
+          </div>
+        </div>
+      </section>
+      <aside>
+        <div class="card reveal">
+          <h3>Contacto</h3>
+          <p class="muted"><strong>Estoy disponible para colaboraciones y proyectos interesantes.</strong></p>
+          <form id="contactForm">
+            <label for="nameInput">Correo: andrefonsecaaguilera@gmail.com</label>
+            <label for="emailInput">Telefono: 4427988830</label>
+            <label for="messageInput">Locacion: Corregidora, Qro.</label>
+          </form>
+        </div>
+        <div class="card reveal" style="margin-top:14px">
+          <h4>Enlaces</h4>
+          <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+            <a class="btn" href="https://github.com/Atronimus" target="_blank">GitHub</a>
+            <a class="btn" href="https://www.linkedin.com/in/andré-fonseca-aguilera-740b16284" id="linkedinBtn">LinkedIn</a>
+            <a class="btn" href="#" id="portfolioBtn">Portafolio</a>
+          </div>
+        </div>
+      </aside>
+    </main>
+    <footer class="reveal">
+      <small>Hecho con HTML, CSS y JavaScript — André Fonseca Aguilera. — <span id="year"></span></small>
+    </footer>
+  </div>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const obs = new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting) e.target.classList.add('visible');});},{threshold:0.12});
+    document.querySelectorAll('.reveal').forEach(n=>obs.observe(n));
+  </script>
+</body>
+</html>
