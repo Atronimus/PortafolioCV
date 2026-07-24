@@ -1,0 +1,509 @@
+/* seccion de carta de presentacion */
+/* ==========================================
+   SOBRE MÍ
+========================================== */
+
+.hero-card{
+
+    background: var(--color-primario);
+
+    border: none;
+
+    border-radius: 25px;
+
+    box-shadow: 0 25px 60px rgba(0,0,0,.45);
+
+    color: white;
+
+}
+
+.hero-card h1{
+
+    font-size: 3.5rem;
+
+    font-weight: bold;
+
+    color: white;
+
+}
+
+.hero-card h4{
+
+    color: var(--cian);
+
+    margin-bottom: 25px;
+
+}
+
+.descripcion{
+
+    font-size: 1.1rem;
+
+    line-height: 1.8;
+
+    color: var(--color-letra);
+
+}
+
+.social-btn{
+    height: 55px;
+    padding: 0 16px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    border-radius: 50px;
+
+    background: #3f3f3f;
+    color: white;
+    text-decoration: none;
+
+    transition: .3s;
+}
+
+.social-btn:hover{
+
+    background: var(--cian);
+
+    color: black;
+
+    transform: translateY(-5px);
+
+}
+
+.photo-placeholder{
+
+    width: 320px;
+
+    height: 320px;
+
+    margin: auto;
+
+    border-radius: 50%;
+
+    border: 4px dashed rgba(255,255,255,.3);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: rgba(255,255,255,.6);
+
+    font-size: 1rem;
+
+}
+
+.social-icon{
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+/* fin seccion de carta de presentacion */
+
+/* =========================
+   SKILLS SECTION
+========================= */
+
+.skills-section{
+    padding: 100px 0;
+}
+
+.section-title{
+    color: white;
+    font-weight: bold;
+}
+
+/* contenedor scroll */
+.skills-wrapper{
+    overflow-x: auto;
+    padding: 20px 10px;
+    scroll-behavior: smooth;
+}
+
+/* ocultar scrollbar (opcional bonito) */
+.skills-wrapper::-webkit-scrollbar{
+    height: 8px;
+}
+
+.skills-wrapper::-webkit-scrollbar-thumb{
+    background: var(--cian);
+    border-radius: 10px;
+}
+
+/* fila horizontal */
+.skills-track{
+    display: flex;
+    gap: 20px;
+    width: max-content;
+}
+
+/* tarjetas */
+.skill-card{
+    min-width: 150px;
+    height: 160px;
+
+    background: var(--color-primario);
+
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+
+    transition: .3s;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,.3);
+}
+
+.skill-card:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px rgba(0,255,255,.2);
+    border: 1px solid var(--cian);
+}
+
+/* imágenes */
+.skill-card img{
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+/* texto */
+.skill-card p{
+    margin: 0;
+    font-weight: 600;
+}
+
+.skills-subtitle{
+
+    color: var(--cian);
+
+    margin-top: 50px;
+    margin-bottom: 25px;
+
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* fin skill section */
+
+/* empieza seccion de educacion */
+
+.education-card{
+
+    background: var(--color-primario);
+
+    border: none;
+
+    border-radius: 30px;
+
+    color: white;
+
+    padding: 50px;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.35);
+
+    transition: .4s;
+
+    max-width: 700px;
+
+    margin: auto;
+}
+
+.education-card:hover{
+
+    transform: translateY(-10px);
+
+    box-shadow:
+        0 0 30px rgba(0,255,255,.20);
+
+}
+
+.education-logo{
+
+    width: 130px;
+
+    height: auto;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(0 0 15px rgba(255,255,255,.20));
+
+}
+
+.education-card h4{
+
+    font-size: 2rem;
+
+    font-weight: bold;
+
+    color: white;
+
+    margin-bottom: 15px;
+
+}
+
+.education-card h5{
+
+    color: var(--color-letra);
+
+    font-size: 1.2rem;
+
+    margin-bottom: 30px;
+
+}
+
+.education-year{
+
+    display: inline-block;
+
+    padding: 12px 30px;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--violeta),
+            var(--cian)
+        );
+
+    font-weight: bold;
+
+    font-size: 1rem;
+
+    color: white;
+
+    letter-spacing: 2px;
+
+    box-shadow:
+        0 0 25px rgba(0,255,255,.30);
+
+}
+
+.certifications-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap:25px;
+
+    margin-top:50px;
+
+}
+
+.cert-item{
+
+    min-height:220px;
+
+    background:var(--color-primario);
+
+    border-radius:25px;
+
+    padding:25px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    transition:.4s;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.35);
+
+}
+
+.cert-item:hover{
+
+    transform:
+        translateY(-10px)
+        scale(1.03);
+
+    border:1px solid var(--cian);
+
+    box-shadow:
+        0 0 30px rgba(0,255,255,.25);
+
+}
+
+.cert-content{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+.cert-icon{
+
+    font-size:3rem;
+
+    color:var(--cian);
+
+}
+
+.cert-item h5{
+
+    color:white;
+
+    font-size:1.1rem;
+
+    font-weight:bold;
+
+}
+
+.cert-item p{
+
+    color:var(--color-letra);
+
+    margin:0;
+
+}
+
+.cert-item span{
+
+    display:inline-block;
+
+    padding:8px 20px;
+
+    border-radius:30px;
+
+    background:rgba(0,255,255,.15);
+
+    color:var(--cian);
+
+    font-weight:bold;
+
+}
+
+.certifications-title{
+    margin-top: 80px;
+}
+
+@media(max-width:1200px){
+
+    .certifications-grid{
+
+        grid-template-columns:
+            repeat(3,1fr);
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .certifications-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+}
+
+@media(max-width:576px){
+
+    .certifications-grid{
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}
+
+/* termina seccion de educacion */
+
+/* experiencia profesional */
+
+.experience-section{
+
+    padding:100px 0;
+
+}
+
+.experience-card{
+
+    background:var(--color-primario);
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.35);
+
+}
+
+.experience-image{
+
+    width:100%;
+
+    height:500px;
+
+    object-fit:cover;
+
+}
+
+.experience-info{
+
+    padding:35px;
+
+    text-align:center;
+
+}
+
+.experience-info h3{
+
+    color:white;
+
+    font-size:2rem;
+
+}
+
+.experience-info span{
+
+    display:inline-block;
+
+    margin:15px 0;
+
+    color:var(--cian);
+
+    font-weight:bold;
+
+}
+
+.experience-info p{
+
+    color:var(--color-letra);
+
+    line-height:1.8;
+
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon{
+
+    filter:invert(1);
+
+}

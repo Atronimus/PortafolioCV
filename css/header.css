@@ -1,0 +1,59 @@
+header{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    z-index:999;
+
+}
+
+.navbar{
+
+    backdrop-filter:blur(12px);
+
+    background:rgba(0,0,0,.25);
+
+    border-bottom:1px solid rgb(255, 255, 255);
+
+    transition:.4s;
+
+}
+
+.navbar-brand{
+
+    color:var(--cian);
+
+    font-weight:bold;
+
+    font-size:1.4rem;
+
+}
+
+.nav-link{
+
+    color:var(--color-letra);
+
+    margin-left:20px;
+
+    transition:.3s;
+
+}
+
+.nav-link:hover{
+
+    color:var(--cian);
+
+}
+
+.navbar-toggler{
+
+    color:white;
+
+    border:none;
+
+}

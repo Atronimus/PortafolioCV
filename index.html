@@ -1,345 +1,663 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>André Fonseca Aguilera — Curriculum / Portafolio</title>
-  <meta name="description" content="Currículum web simple, elegante y responsivo. Hecho con HTML, CSS y JavaScript." />
-  <style>
-    :root{
-      --bg:#0f1724;
-      --card:#0b1220;
-      --muted:#94a3b8;
-      --accent-1:#7c3aed;
-      --accent-2:#06b6d4;
-      --glass: rgba(255,255,255,0.04);
-      --radius:16px;
-      --maxw:1100px;
-      font-family: Inter, ui-sans-serif, system-ui;
-    }
-    *{
-      box-sizing:border-box
-    }
-    html,body{
-      height:100%;
-      margin:0;
-      background:linear-gradient(180deg,var(--bg) 0%, #071028 100%);
-      color:#e6eef8
-    }
-    a{
-      color:inherit
-    }
-    .container{
-      max-width:var(--maxw);
-      margin:40px auto;
-      padding:28px
-    }
-    header{
-      display:flex;
-      gap:18px;
-      align-items:center
-    }
-    .avatar{
-      width:110px;
-      height:110px;
-      border-radius:18px;
-      flex:0 0 110px;
-      background:linear-gradient(135deg,var(--accent-1),var(--accent-2));
-      display:grid;
-      place-items:center;
-      font-weight:700;
-      color:#021124;
-      font-size:28px;
-      box-shadow:0 10px 30px rgba(2,6,23,0.6)
-    }
-    .hero{
-      flex:1
-    }
-    h1{
-      margin:0;
-      font-size:28px;
-      letter-spacing:-0.4px
-    }
-    p.lead{
-      margin:6px 0 0;
-      color:var(--muted)
-    }
-    .actions{
-      margin-top:14px;
-      display:flex;
-      gap:12px
-    }
-    .btn{
-      background:var(--glass);
-      border:1px solid rgba(255,255,255,0.06);
-      padding:10px 14px;
-      border-radius:12px;
-      color:inherit;
-      text-decoration:none;
-      backdrop-filter: blur(6px);
-      cursor:pointer;
-      display:inline-flex;
-      gap:8px;
-      align-items:center
-    }
-    .btn-primary{
-      background:linear-gradient(90deg,var(--accent-1),var(--accent-2));
-      color:#021124;
-      border:none;
-      box-shadow:0 8px 30px rgba(124,58,237,0.18)
-    }
-    main{
-      display:grid;
-      grid-template-columns:1fr 360px;
-      gap:28px;
-      margin-top:26px
-    }
-    .card{
-      background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));
-      border-radius:var(--radius);
-      padding:18px;
-      border:1px solid rgba(255,255,255,0.03)
-    }
-    .section + .section{
-      margin-top:18px
-    }
-    .tags{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px
-    }
-    .tag{
-      background:rgba(255,255,255,0.03);
-      padding:8px 10px;
-      border-radius:999px;
-      font-size:13px;
-      color:var(--muted);
-      border:1px solid rgba(255,255,255,0.02)
-    }
-    .timeline{
-      display:flex;
-      flex-direction:column;
-      gap:12px
-    }
-    .timeline-item{
-      display:flex;
-      gap:12px
-    }
-    .timeline-item .dot{
-      width:12px;
-      height:12px;
-      background:linear-gradient(90deg,var(--accent-1),var(--accent-2));
-      border-radius:50%
-    }
-    .projects{
-      display:grid;
-      gap:12px
-    }
-    .proj{
-      display:block;
-      padding:12px;
-      border-radius:12px;
-      background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);
-      text-decoration:none;
-      color:inherit;
-      border:1px solid rgba(255,255,255,0.02)
-    }
-    .proj small{
-      color:var(--muted)
-    }
-    form{
-      display:flex;
-      flex-direction:column;
-      gap:8px
-    }
-    input, textarea{
-      background:transparent;
-      border:1px solid rgba(255,255,255,0.06);
-      padding:10px;
-      border-radius:10px;
-      color:inherit;
-      resize:none
-    }
-    input::placeholder, textarea::placeholder{
-      color:rgba(230,238,248,0.45)
-    }
-    footer{
-      margin-top:28px;
-      color:var(--muted);
-      font-size:13px;
-      text-align:center
-    }
-    @media (max-width:900px){
-      main{
-        grid-template-columns:1fr
-      }
-      .avatar{
-        width:88px;
-        height:88px;
-        font-size:22px
-      }
-    }
-    .reveal{
-      opacity:0;
-      transform:translateY(14px) scale(0.997);
-      transition:all 550ms cubic-bezier(.2,.9,.3,1)
-    }
-    .reveal.visible{
-      opacity:1;
-      transform:none
-    }
-    .fancy-border{
-      position:relative;
-      padding:1px;
-      border-radius:18px
-    }
-    .fancy-border::before{
-      content:"";
-      position:absolute;
-      inset:-1px;
-      background:linear-gradient(90deg,var(--accent-1),var(--accent-2));
-      filter:blur(24px);
-      z-index:-1;
-      border-radius:inherit;
-      opacity:0.65
-    }
-  </style>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mi Portafolio</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/background.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/section.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/style.css">
+
 </head>
+
 <body>
-  <div class="container">
-    <header class="reveal">
-      <div class="avatar">
-        <img src="Foto.jpg" alt="Foto de André Fonseca Aguilera" style="width:100%; height:100%; object-fit:cover; border-radius:inherit;">
+
+    <!-- Fondo -->
+    <div id="background">
+
+        <div id="stars"></div>
+
+        <div id="stars2"></div>
+
+        <div id="stars3"></div>
+
+    </div>
+
+    <!-- Header -->
+    <header>
+
+      <nav class="navbar navbar-expand-lg">
+
+        <div class="container">
+
+        <a class="navbar-brand" href="#">
+
+        AFA
+
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
+
+        <i class="bi bi-list"></i>
+
+        </button>
+
+          <div class="collapse navbar-collapse justify-content-end" id="navbar">
+
+            <ul class="navbar-nav">
+
+              <li class="nav-item">
+              <a class="nav-link" href="#sobre-mi">Sobre mí</a>
+              </li>
+
+              <li class="nav-item">
+              <a class="nav-link" href="#skills">Tecnologías</a>
+              </li>
+
+              <li class="nav-item">
+              <a class="nav-link" href="#experiencia">Experiencia</a>
+              </li>
+
+              <li class="nav-item">
+              <a class="nav-link" href="#">Proyectos</a>
+              </li>
+
+              <li class="nav-item">
+              <a class="nav-link" href="#">Contacto</a>
+              </li>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+      </nav>
+
+    </header>
+
+    <!-- Contenido -->
+
+    <main>
+
+        <section id="sobre-mi" class="hero">
+
+            <div class="container">
+
+                <div class="row justify-content-center align-items-center min-vh-100">
+
+                    <div class="col-12">
+
+                        <div class="card hero-card">
+
+                            <div class="card-body p-5">
+
+                                <div class="row align-items-center">
+
+                                    <!-- Información -->
+
+                                    <div class="col-lg-7">
+
+                                        <span class="text-info fw-semibold">
+                                            Hola, soy
+                                        </span>
+
+                                        <h1 class="mt-2">
+                                            André Fonseca Aguilera
+                                        </h1>
+
+                                        <h4 class="mb-4">
+                                            Ingeniero en Sistemas Computacionales
+                                        </h4>
+
+                                        <p class="descripcion">
+
+                                            Con experiencia en desarrollo de software en distintas tecnologías y lenguajes.
+
+                                            Me caracterizo por ser una persona autodidacta, adaptable y comprometida con la mejora continua.
+
+                                            Disfruto enfrentar nuevos retos técnicos, aprender tecnologías emergentes y aportar soluciones eficientes, escalables, estructuradas y aprender de las nuevas tecnologías emergentes.
+
+                                        </p>
+
+                                        <div class="d-flex align-items-center gap-3 mt-4 flex-wrap">
+
+                                            <!-- GitHub -->
+
+                                            <a href="https://github.com/Atronimus" class="social-btn">
+
+                                                <img src="assets/github.png" alt="GitHub" class="social-icon">
+
+                                                GitHub
+
+                                            </a>
+
+                                            <!-- LinkedIn -->
+
+                                            <a href="https://www.linkedin.com/in/andr%C3%A9-fonseca-dev/" class="social-btn">
+
+                                                <img src="assets/linkedin.jpg" alt="LinkedIn" class="social-icon">
+
+                                                LinkedIn
+
+                                            </a>
+
+                                            <!-- Descargar CV -->
+
+                                            <a href="assets/CV.pdf"
+                                                class="btn btn-info fw-bold px-4">
+
+                                                <i class="bi bi-download"></i>
+
+                                                Descargar CV
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Foto -->
+
+                                    <div class="col-lg-5 text-center mt-5 mt-lg-0">
+
+                                        <div class="photo-placeholder">
+
+                                            <img src="assets/Foto.jpg" alt="Foto de André Fonseca Aguilera" class="img-fluid rounded-circle">
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="skills" class="skills-section">
+
+            <div class="container">
+
+                <h2 class="section-title text-center">
+                    Tecnologías y Habilidades
+                </h2>
+
+                <!-- Lenguajes -->
+                <h3 class="skills-subtitle">
+                    💻 Tecnologías y Lenguajes
+                </h3>
+
+                <div class="skills-wrapper">
+                    <div class="skills-track">
+
+                        <!-- cards -->
+                        <!-- Card 1 -->
+                        <div class="skill-card">
+                            <img src="assets/img/html.png" alt="HTML">
+                            <p>HTML5</p>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="skill-card">
+                            <img src="assets/img/css.png" alt="CSS">
+                            <p>CSS3</p>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="skill-card">
+                            <img src="assets/img/javascript.jpg" alt="JS">
+                            <p>JavaScript</p>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="skill-card">
+                            <img src="assets/img/php.png" alt="PHP">
+                            <p>PHP</p>
+                        </div>
+
+                        <!-- Card 5 -->
+                        <div class="skill-card">
+                            <img src="assets/img/laravel.png" alt="Laravel">
+                            <p>Laravel</p>
+                        </div>
+
+                        <!-- Card 6 -->
+                        <div class="skill-card">
+                            <img src="assets/img/python.png" alt="Python">
+                            <p>Python</p>
+                        </div>
+
+                        <div class="skill-card">
+                            <img src="assets/img/kotlin.jpg" alt="Kotlin">
+                            <p>Kotlin</p>
+                        </div>
+
+                        <div class="skill-card">
+                            <img src="assets/img/vuejs.png" alt="Vue.js">
+                            <p>Vue.js</p>
+                        </div>
+
+                        <div class="skill-card">
+                            <img src="assets/img/flask.png" alt="Flask">
+                            <p>Flask</p>
+                        </div>
+
+                        <div class="skill-card">
+                            <img src="assets/img/Angular.png" alt="Angular">
+                            <p>Angular</p>
+                        </div>
+
+                        <div class="skill-card">
+                            <img src="assets/img/Django.png" alt="Django">
+                            <p>Django</p>
+                        </div>
+
+                        <div class="skill-card">
+                            <img src="assets/img/Bootstrap.png" alt="Bootstrap">
+                            <p>Bootstrap</p>
+                        </div>
+
+                        <div class="skill-card">
+                            <img src="assets/img/phpunit.png" alt="PHPUnit">
+                            <p>PHPUnit</p>
+                        </div>
+
+                        <div class="skill-card">
+                            <img src="assets/img/karma.png" alt="Karma">
+                            <p>Karma</p>
+                        </div>
+
+                        <div class="skill-card">
+                            <img src="assets/img/git.png" alt="Git">
+                            <p>Git</p>
+                        </div>
+
+                        <div class="skill-card">
+                            <img src="assets/img/github.png" alt="GitHub">
+                            <p>GitHub</p>
+                        </div>
+
+                        <div class="skill-card">
+                            <img src="assets/img/gitlab.png" alt="GitLab">
+                            <p>GitLab</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Bases de datos -->
+                <h3 class="skills-subtitle">
+                    🗄️ Gestores de Bases de Datos
+                </h3>
+
+                <div class="skills-wrapper">
+                    <div class="skills-track">
+
+                        <!-- cards -->
+                        <div class="skill-card">
+                            <img src="assets/img/mysql.png" alt="MySQL">
+                            <p>MySQL</p>
+                        </div>
+
+                        <div class="skill-card">
+                            <img src="assets/img/oracle.png" alt="Oracle Database">
+                            <p>Oracle Database</p>
+                        </div>
+
+                        <div class="skill-card">
+                            <img src="assets/img/sqlserver.png" alt="SQL Server">
+                            <p>SQL Server</p>
+                        </div>
+
+                        <div class="skill-card">
+                            <img src="assets/img/postgresql.jpg" alt="PostgreSQL">
+                            <p>PostgreSQL</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Herramientas -->
+                <h3 class="skills-subtitle">
+                    🛠️ Herramientas y Plataformas
+                </h3>
+
+                <div class="skills-wrapper">
+                    <div class="skills-track">
+
+                        <!-- cards -->
+                        <div class="skill-card">
+                            <img src="assets/img/phpmyadmin.png" alt="phpMyAdmin">
+                            <p>phpMyAdmin</p>
+                        </div>
+
+                        <div class="skill-card">
+                            <img src="assets/img/MySQLworkbench.png" alt="MySQL Workbench">
+                            <p>MySQL Workbench</p>
+                        </div>
+
+                        <div class="skill-card">
+                            <img src="assets/img/sqldeveloper.png" alt="SQL Developer">
+                            <p>SQL Developer</p>
+                        </div>
+
+                        <div class="skill-card">
+                            <img src="assets/img/HeidiSQL.png" alt="HeidiSQL">
+                            <p>HeidiSQL</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Herramientas -->
+                <h3 class="skills-subtitle">
+                    ⚙️ Entornos y Servidores
+                </h3>
+
+                <div class="skills-wrapper">
+                    <div class="skills-track">
+
+                        <!-- cards -->
+                        <div class="skill-card">
+                            <img src="assets/img/xampp.png" alt="XAMPP">
+                            <p>XAMPP</p>
+                        </div>
+
+                        <div class="skill-card">
+                            <img src="assets/img/laragon.png" alt="Laragon">
+                            <p>Laragon</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="formacion" class="education-section">
+
+            <div class="container">
+
+                <h2 class="section-title text-center mb-5">
+                    Formación y Certificaciones
+                </h2>
+
+                <!-- Educación -->
+
+                <h3 class="section-subtitle text-center mb-4">
+                    🎓 Educación
+                </h3>
+
+                <div class="card education-card">
+                    <div class="card-body text-center">
+
+                        <img
+                            src="assets/img/upq.png"
+                            alt="UPQ"
+                            class="education-logo">
+
+                        <h4 class="mt-4">
+                            Ingeniería en Sistemas Computacionales
+                        </h4>
+
+                        <h5>
+                            Universidad Politécnica de Querétaro
+                        </h5>
+
+                        <span class="education-year">
+                            2020 - 2024
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <!-- Certificaciones -->
+
+                <h3 class="section-subtitle text-center mb-5 certifications-title">
+                    📜 Certificaciones
+                </h3>
+
+                <div class="certifications-grid">
+
+                    <!-- certificaciones -->
+                    <div class="cert-item">
+                        <div class="cert-content">
+
+                            <i class="bi bi-patch-check-fill cert-icon"></i>
+
+                            <h5>NDG Linux Unhatched</h5>
+
+                            <p>Cisco Networking Academy</p>
+
+                            <span>2021</span>
+
+                        </div>
+                    </div>
+
+                    <div class="cert-item">
+                        <div class="cert-content">
+
+                            <i class="bi bi-patch-check-fill cert-icon"></i>
+
+                            <h5>Introducción a Java</h5>
+
+                            <p>Coursera | UNAM</p>
+
+                            <span>2022</span>
+
+                        </div>
+                    </div>
+
+                    <div class="cert-item">
+                        <div class="cert-content">
+
+                            <i class="bi bi-patch-check-fill cert-icon"></i>
+
+                            <h5>Python 101 for Data Science</h5>
+
+                            <p>IBM Developer Skills Network</p>
+
+                            <span>2024</span>
+
+                        </div>
+                    </div>
+
+                    <div class="cert-item">
+                        <div class="cert-content">
+
+                            <i class="bi bi-patch-check-fill cert-icon"></i>
+
+                            <h5>Angular desde cero a experto</h5>
+
+                            <p>Udemy</p>
+
+                            <span>2024</span>
+
+                        </div>
+                    </div>
+
+                    <div class="cert-item">
+                        <div class="cert-content">
+
+                            <i class="bi bi-patch-check-fill cert-icon"></i>
+
+                            <h5>Master Laravel for Beginners & Intermediate</h5>
+
+                            <p>Udemy</p>
+
+                            <span>2024</span>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="experiencia" class="experience-section">
+
+            <div class="container">
+
+                <h2 class="section-title text-center mb-5">
+                    💼 Experiencia Profesional
+                </h2>
+
+                <div id="experienceCarousel"
+                    class="carousel slide"
+                    data-bs-ride="carousel">
+
+                    <div class="carousel-inner">
+
+                        <!-- Slide 1 -->
+
+                        <div class="carousel-item active">
+
+                            <div class="experience-card">
+
+                                <img
+                                    src="assets/img/inventarios.png"
+                                    class="experience-image"
+                                    alt="Proyecto 1">
+
+                                <div class="experience-info">
+
+                                    <h3>
+                                        Sistema de Gestión de Inventario
+                                    </h3>
+
+                                    <span>
+                                        Laravel • Breeze • MySQL • Bootstrap • JavaScript
+                                    </span>
+
+                                    <p>
+
+                                        Desarrollo de módulos para
+                                        inventario, empleados,
+                                        préstamos y reportes.
+
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="carousel-item">
+
+                            <div class="experience-card">
+
+                                <img
+                                    src="assets/img/equipo.png"
+                                    class="experience-image"
+                                    alt="Proyecto 2">
+
+                                <div class="experience-info">
+
+                                    <h3>
+                                        Sistema de Gestión de Inventario
+                                    </h3>
+
+                                    <span>
+                                        Importación de datos • Control de estatus • Reportes
+                                    </span>
+
+                                    <p>
+
+                                        Se desarrolló un sistema de gestión de inventario para una empresa, permitiendo el seguimiento de productos, control de stock y generación de reportes, al igual que control de estatus, que permite revisar si un equipo esta activo o esta dado de baja.
+
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Más slides -->
+
+                    </div>
+
+                    <!-- Flechas -->
+
+                    <button
+                        class="carousel-control-prev"
+                        type="button"
+                        data-bs-target="#experienceCarousel"
+                        data-bs-slide="prev">
+
+                        <span class="carousel-control-prev-icon"></span>
+
+                    </button>
+
+                    <button
+                        class="carousel-control-next"
+                        type="button"
+                        data-bs-target="#experienceCarousel"
+                        data-bs-slide="next">
+
+                        <span class="carousel-control-next-icon"></span>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+
+    <footer>
+
+      <div class="container text-center py-4">
+
+      <p>
+
+      © 2026 Todos los derechos reservados (Algunos de los proyectos mostrados tienen tapada la información por motivos de privacidad y confidencialidad).
+
+      </p>
+
       </div>
 
-      <div class="hero">
-        <h1 id="name">André Fonseca Aguilera</h1>
-        <p class="lead" id="title">Full Stack Developer • Laravel / Angular / PHP </p>
-        <div class="actions">
-          <a class="btn btn-primary" id="cvBtn" href="André Fonseca CV(Complete Edition).pdf" download>Descargar CV</a>
-          <a class="btn" id="emailBtn" href="mailto:andrefonsecaaguilera@gmail.com">✉ Contacto</a>
-          <a class="btn" id="githubBtn" href="https://github.com/Atronimus" target="_blank" rel="noopener">GitHub</a>
-        </div>
-      </div>
-    </header>
-    <main>
-      <section>
-        <div class="card section reveal">
-          <h3>DESCRIPCIÓN</h3>
-          <p id="about">Ingeniero en Sistemas Computacionales con 1 año y medio de experiencia profesional en desarrollo de software, 
-            especializado en Laravel y Angular. Domino el desarrollo backend con PHP y Laravel, así como el frontend con Angular, 
-            integrando pruebas unitarias robustas mediante PHPUnit y Karma para asegurar la calidad del código.
-            Tengo amplia experiencia en el uso de Git y GitHub, con manejo avanzado de ramas, pull requests y flujos de trabajo 
-            colaborativos. He trabajado con APIs externas como la de DipoMex, integrando soluciones que garantizan la disponibilidad de 
-            datos mediante respaldos locales en caso de fallos del servicio externo.
-            Mis proyectos se han enfocado principalmente en sistemas administrativos, incluyendo el control de inventarios, gestión de 
-            entradas y salidas de artículos, generación de licencias y sistemas de solicitudes de usuarios. He trabajado con bases de datos 
-            MySQL y, en menor medida, Oracle. Además, tengo experiencia con metodologías ágiles y herramientas como Jira para el seguimiento 
-            y control de tareas.
-            Soy una persona autodidacta, adaptable y comprometida con la mejora continua. Me entusiasma asumir nuevos retos dentro del 
-            área de programación, y aportar soluciones eficientes y bien estructuradas, ya sea en entornos presenciales o remotos.
-          </p>
-          <div class="section">
-            <h4>Lenguajes y Tecnologías</h4>
-            <div class="tags" id="skills">
-              <span class="tag">C++</span>
-              <span class="tag">Java</span>
-              <span class="tag">JavaScript</span>
-              <span class="tag">PHP</span>
-              <span class="tag">Python</span>
-              <span class="tag">Laravel</span>
-              <span class="tag">VueJs</span>
-              <span class="tag">PHPUnit</span>
-              <span class="tag">Flask</span>
-              <span class="tag">Django</span>
-              <span class="tag">HTML</span>
-              <span class="tag">CSS</span>
-              <span class="tag">Bootstrap</span>
-              <span class="tag">Angular</span>
-              <span class="tag">Unit Test (Angular)</span>
-            </div>
-          </div>
-          <div class="section">
-            <h4>Bases de Datos</h4>
-            <div class="tags" id="databases">
-              <span class="tag">MySQL</span>
-              <span class="tag">SQL Server</span>
-              <span class="tag">PostgreSQL</span>
-              <span class="tag">Oracle</span>
-              <span class="tag">phpMyAdmin</span>
-              <span class="tag">Workbench</span>
-              <span class="tag">HeidiSQL</span>
-            </div>
-          </div>
-          <div class="section">
-            <h4>Experiencia Laboral</h4>
-            <div class="timeline">
-              <div class="timeline-item">
-                <div class="dot"></div>
-                <div>
-                  <strong>Desarrollador Full Stack — Empresa DexterNetQro</strong>
-                  <div><small class="muted">Ago 2021 — Dic 2022</small></div>
-                  <p class="muted">Desarrollo de sitios web en WordPress para distintos clientes. Participé en varios proyectos, 
-                    fortaleciendo mis habilidades de diseño, personalización de temas, maquetación web y optimización de rendimiento.
-                  </p>
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="dot"></div>
-                <div>
-                  <strong>Sublíder y Líder de Proyecto — Universidad Politécnica de Querétaro</strong>
-                  <div><small class="muted">Ene 2023 — Jul 2023</small></div>
-                  <p class="muted">Sublíder y luego Líder del equipo de desarrollo para una aplicación web SPA construida con Laravel 
-                    y Vue.js, dirigida al área de servicios estudiantiles. Coordiné mesas de retroalimentación, lideré entregas de 
-                    funcionalidades clave y colaboré en todo el ciclo de desarrollo del sistema.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card section reveal fancy-border" style="margin-top:18px">
-          <h4 style="font-weight: 600; text-align: center;">Proyectos destacados</h4>
-          <div class="projects">
-            <a class="proj" href="#" target="_blank">
-              <strong>Proyecto A</strong>
-              <div><small>Repositorio • Single Page App</small></div>
-            </a>
-            <a class="proj" href="#" target="_blank">
-              <strong>Proyecto B</strong>
-              <div><small>API • Laravel</small></div>
-            </a>
-          </div>
-        </div>
-      </section>
-      <aside>
-        <div class="card reveal">
-          <h3>Contacto</h3>
-          <p class="muted"><strong>Estoy disponible para colaboraciones y proyectos interesantes.</strong></p>
-          <form id="contactForm">
-            <label for="nameInput">Correo: andrefonsecaaguilera@gmail.com</label>
-            <label for="emailInput">Telefono: 4427988830</label>
-            <label for="messageInput">Locacion: Corregidora, Qro.</label>
-          </form>
-        </div>
-        <div class="card reveal" style="margin-top:14px">
-          <h4>Enlaces</h4>
-          <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
-            <a class="btn" href="https://github.com/Atronimus" target="_blank">GitHub</a>
-            <a class="btn" href="https://www.linkedin.com/in/andré-fonseca-aguilera-740b16284" id="linkedinBtn">LinkedIn</a>
-            <a class="btn" href="#" id="portfolioBtn">Portafolio</a>
-          </div>
-        </div>
-      </aside>
-    </main>
-    <footer class="reveal">
-      <small>Hecho con HTML, CSS y JavaScript — André Fonseca Aguilera. — <span id="year"></span></small>
     </footer>
-  </div>
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    const obs = new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting) e.target.classList.add('visible');});},{threshold:0.12});
-    document.querySelectorAll('.reveal').forEach(n=>obs.observe(n));
-  </script>
+
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JS -->
+    <script src="js/background.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/scroll.js"></script>
+    <script src="js/main.js"></script>
+
 </body>
+
 </html>

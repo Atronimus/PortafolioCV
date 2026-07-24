@@ -1,0 +1,11 @@
+:root {
+    --background: #000000; /* black */
+    --color-primario: #525252; /* davys-gray */
+    --color-secundario: #ffffff; /* off-white */
+    --color-terciario: #e5e6e7; /* iron */
+    --color-letra: #d1e5ec; /* alice-blue */
+    --color-letra-secundario: #d5d7d8; /* light-gray */
+    --cian: #00ffff; /* cyan */
+    --morado: #800080; /* purple */
+    --violeta: #8a2be2; /* blue-violet */
+}
